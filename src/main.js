@@ -1,8 +1,24 @@
-import Vue from 'vue'
-import App from './App.vue'
+console.log(window.vue);
 
-Vue.config.productionTip = false
+const Vue = window.vue;
+
+Vue.config.productionTip = false;
 
 new Vue({
-  render: h => h(App),
-}).$mount('#app')
+  data() {
+    return {
+      n: 0,
+    };
+  },
+  template: `
+  <div class="red">
+  {{n}}
+<button @click="add">+1</button>
+</div>
+  `,
+  methods: {
+    add() {
+      this.n += 1;
+    },
+  },
+}).$mount("#app");
